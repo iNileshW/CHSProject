@@ -100,9 +100,10 @@ public class TC_Archived_Patients_Print {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
-	  driver = new FirefoxDriver();
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  /*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	  driver = new FirefoxDriver();*/
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);
 	  
 	  
   }
