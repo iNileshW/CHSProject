@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.TC_Doctor_Handover_ChangePwdLogin">
+      <class name="testCases.TC_Doctor_Handover_RecordPerPage">
         <methods>
-          <include name="afterMethod"/>
-          <include name="f"/>
           <include name="beforeMethod"/>
+          <include name="f"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- testCases.TC_Doctor_Handover_ChangePwdLogin -->
+      </class> <!-- testCases.TC_Doctor_Handover_RecordPerPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
