@@ -86,14 +86,16 @@ public class TC_Ward_RoundSheet_RecordPerPage {
 @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	  /*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  WindowResize_Action.Execute(driver);
-	  LeftFrameSwitch_Action.Execute(driver);
+	  LeftFrameSwitch_Action.Execute(driver);*/
 	  /* WebDriverWait wait = new WebDriverWait(driver,10);
 	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));*/
-	  
+	driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);
+	  WindowResize_Action.Execute(driver);
   }
 
   @AfterMethod

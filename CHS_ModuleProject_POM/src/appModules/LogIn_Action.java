@@ -35,6 +35,7 @@ public class LogIn_Action {
 			LogInPage.password(driver).sendKeys(gPassword);
 			LogInPage.remember_password(driver).click();
 			wait.until(ExpectedConditions.elementToBeClickable(LogInPage.Submit(driver))).click();
+			//LeftFrameSwitch_Action.Execute(driver);
 			return driver;
 	}
 			}

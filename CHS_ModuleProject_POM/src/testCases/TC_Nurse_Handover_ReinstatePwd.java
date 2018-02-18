@@ -2,10 +2,12 @@ package testCases;
 
 import org.testng.annotations.Test;
 
+import appModules.LeftFrameSwitch_Action;
 import appModules.LogIn_Action;
 import appModules.MainFrameSwitch_Action;
 import utility.Constant;
 import appModules.Menu_Action;
+import appModules.WindowResize_Action;
 
 import org.testng.annotations.BeforeMethod;
 
@@ -61,12 +63,14 @@ public class TC_Nurse_Handover_ReinstatePwd {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	  /*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  WebDriverWait wait = new WebDriverWait(driver,10);
-	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));
-	  
+	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));*/
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);
+	  WindowResize_Action.Execute(driver);
   }
 
   @AfterMethod

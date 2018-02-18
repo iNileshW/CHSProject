@@ -7,6 +7,7 @@ import appModules.LogIn_Action;
 import appModules.MainFrameSwitch_Action;
 import utility.Constant;
 import appModules.Menu_Action;
+import appModules.WindowResize_Action;
 
 import org.testng.annotations.BeforeMethod;
 
@@ -25,7 +26,7 @@ public class TC_Doctor_Handover_Print {
 	
   @Test
   public void f() {
-	  LeftFrameSwitch_Action.Execute(driver);
+	  
 	  Menu_Action.Execute(driver,utility.Constant.Module5);
 	  MainFrameSwitch_Action.Execute(driver);
 	  
@@ -42,10 +43,11 @@ public class TC_Doctor_Handover_Print {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
-	  driver = new FirefoxDriver();
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
-	  
+	  /*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	  driver = new FirefoxDriver();*/
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);
+	  WindowResize_Action.Execute(driver);
 	  
   }
 
