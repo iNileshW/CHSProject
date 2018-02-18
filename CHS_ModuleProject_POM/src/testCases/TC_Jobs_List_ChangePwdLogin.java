@@ -4,8 +4,10 @@ import org.testng.annotations.Test;
 
 import appModules.LeftFrameSwitch_Action;
 import appModules.LogIn_Action;
+import appModules.LogIn_Secure_Action;
 import utility.Constant;
 import appModules.Menu_Action;
+import appModules.Only_LogIn_Action;
 import appModules.WindowResize_Action;
 
 import org.testng.annotations.BeforeMethod;
@@ -56,7 +58,8 @@ public class TC_Jobs_List_ChangePwdLogin {
 	  
 	  //Logout & try Log in with old password
 	  pageObjects.JobsListPage.LogOut(driver).click();
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.cPassword);
+	  //LogIn_Action.Execute(driver,Constant.Username,Constant.cPassword);
+	  Only_LogIn_Action.Execute(Constant.Username,Constant.cPassword);
 	  assertEquals("Invalid Login",pageObjects.LogInPage.validationmsg(driver).getText());
 	  //Logout & Login
 	  //pageObjects.JobsListPage.LogOut(driver).click();

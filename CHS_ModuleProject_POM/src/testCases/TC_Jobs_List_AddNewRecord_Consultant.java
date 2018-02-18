@@ -36,7 +36,6 @@ public class TC_Jobs_List_AddNewRecord_Consultant {
   public void f() {
 	  String Module = "Jobs List";
 	  HomePage.Jobs_List(driver).click();
-	 
 	  Menu_Action.Execute(driver,Module);
 	  driver.switchTo().defaultContent();
 	  WebDriverWait wait = new WebDriverWait(driver, 10);
