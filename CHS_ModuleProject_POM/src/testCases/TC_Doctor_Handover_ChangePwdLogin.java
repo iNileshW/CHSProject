@@ -85,12 +85,15 @@ public class TC_Doctor_Handover_ChangePwdLogin {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	 /* System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
 	  WindowResize_Action.Execute(driver);
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  WebDriverWait wait = new WebDriverWait(driver,10);
-	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));
+	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));*/
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);
+	  WindowResize_Action.Execute(driver);
 	  
   }
 

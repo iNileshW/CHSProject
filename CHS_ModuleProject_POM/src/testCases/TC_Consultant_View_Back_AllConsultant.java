@@ -44,9 +44,11 @@ public class TC_Consultant_View_Back_AllConsultant {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	  /*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);*/
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  
   }
