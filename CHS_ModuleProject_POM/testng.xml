@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="testCases.TC_Jobs_List_SortFunctionality"/>
+      <class name="testCases.TC_Nurse_Handover_AdvSearch"/>
+      <class name="testCases.TC_Jobs_List_RecordPerPage"/>
+      <class name="testCases.TC_Jobs_List_Edit_Back_Change"/>
+      <class name="testCases.TC_Jobs_List_Print"/>
+      <class name="testCases.TC_Jobs_List_View_Back"/>
+      <class name="testCases.TC_Jobs_List_Select_Unselect"/>
+      <class name="testCases.TC_Nurse_Handover_SortFunctionality"/>
+      <class name="testCases.TC_Nurse_Handover_RecordPerPage"/>
+      <class name="testCases.TC_Nurse_Handover_AddNew_Back"/>
+      <class name="testCases.TC_Jobs_List_AddNewRecord"/>
+      <class name="testCases.TC_Jobs_List_AdvSearch"/>
+      <class name="testCases.TC_Doctor_Handover_AdvSearch"/>
+      <class name="testCases.TC_Nurse_Handover_View_Back"/>
+      <class name="testCases.TC_Nurse_Handover_Print"/>
+      <class name="testCases.TC_Ward_RoundSheet_AdvSearch"/>
+      <class name="testCases.TC_Nurse_Handover_AddNewRecord"/>
+      <class name="testCases.TC_Ward_RoundSheet_Print"/>
+      <class name="testCases.TC_Nurse_Handover_AddNewRecordReset"/>
+      <class name="testCases.TC_Jobs_List_AddNewRecord_Consultant"/>
+      <class name="testCases.TC_Ward_RoundSheet_RecordPerPage"/>
+      <class name="testCases.TC_Jobs_List_AddNew_Back"/>
+      <class name="testCases.TC_Ward_RoundSheet_SortFunctionality"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
