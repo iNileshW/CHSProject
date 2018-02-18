@@ -7,6 +7,7 @@ import appModules.LogIn_Action;
 import appModules.MainFrameSwitch_Action;
 import utility.Constant;
 import appModules.Menu_Action;
+import appModules.WindowResize_Action;
 
 import org.testng.annotations.BeforeMethod;
 
@@ -32,11 +33,13 @@ public class TC_Archived_Patients_AddNewRecord {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	 /* System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);*/
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
-	  
+	  WindowResize_Action.Execute(driver);
   }
 
   @AfterMethod
