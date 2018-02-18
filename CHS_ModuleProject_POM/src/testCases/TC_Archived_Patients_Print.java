@@ -67,16 +67,12 @@ import appModules.Menu_Action;
 
 import org.testng.annotations.BeforeMethod;
 
-import static org.testng.Assert.assertEquals;
-
 import java.util.ArrayList;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
-import pageObjects.HomePage;
 public class TC_Archived_Patients_Print {
 	public WebDriver driver;
 	

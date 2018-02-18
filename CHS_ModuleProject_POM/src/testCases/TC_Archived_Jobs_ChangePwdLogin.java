@@ -7,7 +7,6 @@ import appModules.LogIn_Action;
 import appModules.MainFrameSwitch_Action;
 import utility.Constant;
 import appModules.Menu_Action;
-import appModules.WindowResize_Action;
 import pageObjects.LogInPage;
 
 import org.testng.annotations.BeforeMethod;
@@ -15,7 +14,6 @@ import org.testng.annotations.BeforeMethod;
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;

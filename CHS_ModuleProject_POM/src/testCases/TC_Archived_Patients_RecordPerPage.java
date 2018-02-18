@@ -8,16 +8,10 @@ import appModules.MainFrameSwitch_Action;
 import utility.Constant;
 import appModules.Menu_Action;
 import appModules.PageNavigation_Action;
-import appModules.WindowResize_Action;
-
 import org.testng.annotations.BeforeMethod;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
-import pageObjects.HomePage;
 public class TC_Archived_Patients_RecordPerPage {
 	public WebDriver driver;
 	

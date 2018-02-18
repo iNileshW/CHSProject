@@ -10,16 +10,9 @@ import appModules.Menu_Action;
 
 import org.testng.annotations.BeforeMethod;
 
-import static org.testng.Assert.assertEquals;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
-import pageObjects.HomePage;
 public class TC_Archived_Patients_View_Back {
 	public WebDriver driver;
 	

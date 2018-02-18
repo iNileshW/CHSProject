@@ -6,15 +6,12 @@ import appModules.LeftFrameSwitch_Action;
 import appModules.LogIn_Action;
 import appModules.MainFrameSwitch_Action;
 import appModules.Menu_Action;
-import appModules.WindowResize_Action;
 import utility.Constant;
 
 import org.testng.annotations.BeforeMethod;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 public class TC_Archived_Patients_ArchivedJobsBack {
 	
