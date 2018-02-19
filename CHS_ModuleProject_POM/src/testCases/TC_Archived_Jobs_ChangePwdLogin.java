@@ -93,7 +93,7 @@ public class TC_Archived_Jobs_ChangePwdLogin {
 		LogInPage.remember_password(driver).click();
 		wait.until(ExpectedConditions.elementToBeClickable(LogInPage.Submit(driver))).click();
 	  LeftFrameSwitch_Action.Execute(driver);
-	  Menu_Action.Execute(driver,utility.Constant.Module3);
+	  Menu_Action.Execute(driver,utility.Constant.Module8);
 	  MainFrameSwitch_Action.Execute(driver);
   }
   

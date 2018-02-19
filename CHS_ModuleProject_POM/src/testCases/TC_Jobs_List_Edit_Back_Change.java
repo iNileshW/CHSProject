@@ -43,13 +43,13 @@ public class TC_Jobs_List_Edit_Back_Change {
 	  //click edit & add i value in notes
 	  for(int i=2;i<=rcount;i=i+(rcount/3)) {
 		  //pageObjects.JobsListPage.Jobs_List_Page(driver).click();
-		  driver.findElement(By.xpath("html/body/form[2]/table/tbody/tr["+i+"]/td[1]")).click();
+		  driver.findElement(By.xpath("html/body/form[2]/table/tbody/tr["+i+"]/td[1]/a")).click();
 		  String n1 = Integer.toString(i);
 		  pageObjects.EditPage.Notes(driver).sendKeys(n1);
 		  pageObjects.EditPage.Save(driver).click();
 		  //appModules.ModuleSwitchBack_Action(driver,Module,)
-		  pageObjects.JobsListPage.LogOut(driver).click();
-		  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+		  /*pageObjects.JobsListPage.LogOut(driver).click();
+		  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);*/
 		  LeftFrameSwitch_Action.Execute(driver);
 		  HomePage.Jobs_List(driver).click();
 		  Menu_Action.Execute(driver,utility.Constant.Module2);

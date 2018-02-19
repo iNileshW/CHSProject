@@ -70,9 +70,12 @@ import org.testng.annotations.BeforeMethod;
 
 import static org.testng.Assert.assertEquals;
 
+import java.awt.List;
 import java.util.ArrayList;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -89,7 +92,12 @@ public class TC_Nurse_Handover_Print {
 	  
 	  WebDriverWait wait = new WebDriverWait(driver, 10);
 	  String oldTab = driver.getWindowHandle();
-	  wait.until(ExpectedConditions.elementToBeClickable(pageObjects.NurseHandoverPage.Print(driver))).click();
+	  MainFrameSwitch_Action.Execute(driver);
+	  java.util.List<WebElement> allLinks = driver.findElements(By.cssSelector("html>body>table>tbody>tr>td>table>tbody>tr>td>a"));
+	  System.out.println(allLinks.iterator());
+	  driver.findElement(By.xpath("//html/body/table[1]/tbody/tr/td[4]/table/tbody/tr/td[9]")).click();
+	  //driver.findElement(By.cssSelector("html>body>table>tbody>tr>td>table>tbody>tr>td>a")).click();
+	  //wait.until(ExpectedConditions.elementToBeClickable(pageObjects.NurseHandoverPage.Print(driver))).click();
 		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
 	    driver.switchTo().window(tabs2.get(1));
 	    assertEquals("Nursing Handover",pageObjects.AddNewPagePrintPopUp.Header(driver).getText());

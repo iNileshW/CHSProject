@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import appModules.LeftFrameSwitch_Action;
 import appModules.LogIn_Action;
 import appModules.LogIn_Secure_Action;
+import appModules.MainFrameSwitch_Action;
 import utility.Constant;
 import appModules.Menu_Action;
 import appModules.Only_LogIn_Action;
@@ -22,18 +23,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import pageObjects.HomePage;
+import pageObjects.LogInPage;
 public class TC_Jobs_List_ChangePwdLogin {
 	public WebDriver driver;
 	
   @Test
   public void f() {
-	  String Module = "Jobs List";
-	  HomePage.Jobs_List(driver).click();
+	  /*String Module = "Jobs List";
+	  HomePage.Jobs_List(driver).click();*/
 	 
-	  Menu_Action.Execute(driver,Module);
-	  driver.switchTo().defaultContent();
+	  Menu_Action.Execute(driver,utility.Constant.Module2);
+	  MainFrameSwitch_Action.Execute(driver);
+	  /*driver.switchTo().defaultContent();
 	  WebDriverWait wait = new WebDriverWait(driver, 10);
-	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("mainFrame")); 
+	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("mainFrame"));*/ 
 	  /*assertEquals("Current Jobs",pageObjects.JobsListAddNewPage.Add_New_Page(driver).getText());*/
 	  pageObjects.JobsListPage.CPassword(driver).click();
 	  
@@ -59,18 +62,25 @@ public class TC_Jobs_List_ChangePwdLogin {
 	  //Logout & try Log in with old password
 	  pageObjects.JobsListPage.LogOut(driver).click();
 	  //LogIn_Action.Execute(driver,Constant.Username,Constant.cPassword);
-	  Only_LogIn_Action.Execute(Constant.Username,Constant.cPassword);
-	  assertEquals("Invalid Login",pageObjects.LogInPage.validationmsg(driver).getText());
+	  LogInPage.username(driver).sendKeys(Constant.Username);
+		LogInPage.password(driver).clear();
+		LogInPage.password(driver).sendKeys(Constant.cPassword);
+		LogInPage.remember_password(driver).click();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(LogInPage.Submit(driver))).click();
+	    assertEquals("Invalid Login",pageObjects.LogInPage.validationmsg(driver).getText());
 	  //Logout & Login
 	  //pageObjects.JobsListPage.LogOut(driver).click();
 	  /*LogIn_Action.Execute(driver,Constant.Username,Constant.cPassword);*/
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
-	  WebDriverWait wait1 = new WebDriverWait(driver,10);
-	  wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));
-	  Menu_Action.Execute(driver,Module);
-	  driver.switchTo().defaultContent();
-	  WebDriverWait wait11 = new WebDriverWait(driver, 10);
-	  wait11.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("mainFrame")); 
+	    LogInPage.username(driver).clear();
+		  LogInPage.username(driver).sendKeys(Constant.Username);
+			LogInPage.password(driver).clear();
+			LogInPage.password(driver).sendKeys(Constant.Password);
+			LogInPage.remember_password(driver).click();
+			wait.until(ExpectedConditions.elementToBeClickable(LogInPage.Submit(driver))).click();
+		  LeftFrameSwitch_Action.Execute(driver);
+		  Menu_Action.Execute(driver,utility.Constant.Module2);
+		  MainFrameSwitch_Action.Execute(driver); 
 	  //pageObjects.JobsListChangePwd.Back(driver).click();
 	  
 	  //Validation check for different passwords
@@ -80,27 +90,29 @@ public class TC_Jobs_List_ChangePwdLogin {
 	  pageObjects.ChangePwd.opass(driver).sendKeys(Constant.Password);
 	  pageObjects.ChangePwd.cpass(driver).clear();
 	  /*pageObjects.ChangePwd.cpass(driver).sendKeys(Constant.cPassword);*/
-	  pageObjects.ChangePwd.cpass(driver).sendKeys(Constant.Password);
+	  pageObjects.ChangePwd.cpass(driver).sendKeys(Constant.cPassword);
 	  pageObjects.ChangePwd.newpass(driver).clear();
-	  pageObjects.ChangePwd.newpass(driver).sendKeys(Constant.cPassword);
+	  pageObjects.ChangePwd.newpass(driver).sendKeys(Constant.Password);
 	  pageObjects.ChangePwd.Submit(driver).click();
 	  driver.switchTo().alert().dismiss();
 	  
 	  //Change password Back to original
-	  pageObjects.ChangePwd.newpass(driver).clear();
-	  pageObjects.ChangePwd.newpass(driver).sendKeys(Constant.Password);
+	  pageObjects.ChangePwd.cpass(driver).clear();
+	  pageObjects.ChangePwd.cpass(driver).sendKeys(Constant.Password);
 	  pageObjects.ChangePwd.Submit(driver).click();
 	  pageObjects.ChangePwd.Back(driver).click();
 	  
 	  //Logout & Login again
-	  pageObjects.JobsListPage.LogOut(driver).click();
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
-	  WebDriverWait wait111 = new WebDriverWait(driver,10);
-	  wait111.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));
-	  Menu_Action.Execute(driver,Module);
-	  driver.switchTo().defaultContent();
-	  WebDriverWait wait1111 = new WebDriverWait(driver, 10);
-	  wait1111.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("mainFrame"));
+	  pageObjects.ArchivedJobsPage.LogOut(driver).click();
+	  //LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LogInPage.username(driver).sendKeys(Constant.Username);
+		LogInPage.password(driver).clear();
+		LogInPage.password(driver).sendKeys(Constant.Password);
+		LogInPage.remember_password(driver).click();
+		wait.until(ExpectedConditions.elementToBeClickable(LogInPage.Submit(driver))).click();
+	  LeftFrameSwitch_Action.Execute(driver);
+	  Menu_Action.Execute(driver,utility.Constant.Module2);
+	  MainFrameSwitch_Action.Execute(driver);
   }
   
   @BeforeMethod
