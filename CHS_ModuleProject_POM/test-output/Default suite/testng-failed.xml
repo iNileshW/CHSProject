@@ -3,13 +3,34 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.TC_Nurse_Handover_Print">
+      <class name="testCases.TC_Jobs_List_Print">
         <methods>
+          <include name="beforeMethod"/>
           <include name="afterMethod"/>
           <include name="f"/>
-          <include name="beforeMethod"/>
         </methods>
-      </class> <!-- testCases.TC_Nurse_Handover_Print -->
+      </class> <!-- testCases.TC_Jobs_List_Print -->
+      <class name="testCases.TC_Jobs_List_AddNewRecord">
+        <methods>
+          <include name="f"/>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- testCases.TC_Jobs_List_AddNewRecord -->
+      <class name="testCases.TC_Jobs_List_AddNewRecord_Consultant">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
+          <include name="f"/>
+        </methods>
+      </class> <!-- testCases.TC_Jobs_List_AddNewRecord_Consultant -->
+      <class name="testCases.TC_Jobs_List_RecordPerPage">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="f"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- testCases.TC_Jobs_List_RecordPerPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

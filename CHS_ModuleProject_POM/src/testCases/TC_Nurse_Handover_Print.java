@@ -74,6 +74,7 @@ import java.awt.List;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -93,9 +94,17 @@ public class TC_Nurse_Handover_Print {
 	  WebDriverWait wait = new WebDriverWait(driver, 10);
 	  String oldTab = driver.getWindowHandle();
 	  MainFrameSwitch_Action.Execute(driver);
-	  java.util.List<WebElement> allLinks = driver.findElements(By.cssSelector("html>body>table>tbody>tr>td>table>tbody>tr>td>a"));
-	  System.out.println(allLinks.iterator());
-	  driver.findElement(By.xpath("//html/body/table[1]/tbody/tr/td[4]/table/tbody/tr/td[9]")).click();
+	  
+	  JavascriptExecutor js = (JavascriptExecutor) driver;  
+	  js.executeScript(Script,Arguments);
+	  
+	  //driver.findElement(By.className("Printer-friendly version")).click();
+	  //driver.findElement(By.linkText("Printer-friendly version")).click();
+	  //driver.findElement(By.cssSelector("input[value=Go]"));
+	  /*java.util.List<WebElement> allLinks = driver.findElements(By.cssSelector("html>body>table>tbody>tr>td>table>tbody>tr>td>a"));
+	  String printvalue[] = allLinks.toString();
+	  
+	  driver.findElement(By.xpath("//html/body/table[1]/tbody/tr/td[4]/table/tbody/tr/td[9]")).click();*/
 	  //driver.findElement(By.cssSelector("html>body>table>tbody>tr>td>table>tbody>tr>td>a")).click();
 	  //wait.until(ExpectedConditions.elementToBeClickable(pageObjects.NurseHandoverPage.Print(driver))).click();
 		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
