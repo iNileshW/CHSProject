@@ -73,6 +73,7 @@ import java.util.ArrayList;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -85,7 +86,6 @@ public class TC_Archived_Jobs_ExportResults {
 	  LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module8);
 	  MainFrameSwitch_Action.Execute(driver);
-	  
 	  WebDriverWait wait = new WebDriverWait(driver, 10);
 	  String oldTab = driver.getWindowHandle();
 	  wait.until(ExpectedConditions.elementToBeClickable(pageObjects.ArchivedJobsPage.export_result(driver))).click();
@@ -100,11 +100,21 @@ public class TC_Archived_Jobs_ExportResults {
 	    pageObjects.ExportResultsPage.ExportBtn(driver).click();
 	    driver.switchTo().alert().accept();
 	    pageObjects.ExportResultsPage.AllrecordsRadio(driver).click();
+	    
 	    pageObjects.ExportResultsPage.ExcelRadio(driver).click();
+	    /*FirefoxOptions options = new FirefoxOptions();
+		FirefoxProfile profile = new FirefoxProfile();
+		profile.setpreference("browser.helperApps.neverAsk.saveToDisk", 'application/xlsx')
+		options.setProfile(profile)
+		options.setAcceptInsecureCerts(true);
+		System.out.println(options.getProfile());
+		Login_FFoptions.Execute(driver,options);*/
 	    pageObjects.ExportResultsPage.ExportBtn(driver).click();
+	    
 	    pageObjects.ExportResultsPage.AllrecordsRadio(driver).click();
 	    pageObjects.ExportResultsPage.XMLRadio(driver).click();
 	    pageObjects.ExportResultsPage.ExportBtn(driver).click();
+	    
 	    pageObjects.ExportResultsPage.AllrecordsRadio(driver).click();
 	    pageObjects.ExportResultsPage.WordRadio(driver).click();
 	    pageObjects.ExportResultsPage.ExportBtn(driver).click();

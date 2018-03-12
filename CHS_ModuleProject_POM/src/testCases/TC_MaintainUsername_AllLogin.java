@@ -38,7 +38,7 @@ public class TC_MaintainUsername_AllLogin {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  driver = LogIn_Action.Execute(driver,Constant.adminUser,Constant.adminPass);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  WindowResize_Action.Execute(driver);
   }

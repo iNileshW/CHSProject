@@ -46,11 +46,12 @@ public class TC_Maintain_Username_EditBack {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	  /*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
 	  LogIn_Admin_Action.Execute(driver);
+	  LeftFrameSwitch_Action.Execute(driver);*/
+	  driver = LogIn_Action.Execute(driver,Constant.adminUser,Constant.adminPass);
 	  LeftFrameSwitch_Action.Execute(driver);
-	  
   }
 
   @AfterMethod

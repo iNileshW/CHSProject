@@ -95,8 +95,9 @@ public class TC_Nurse_Handover_Print {
 	  String oldTab = driver.getWindowHandle();
 	  MainFrameSwitch_Action.Execute(driver);
 	  
-	  JavascriptExecutor js = (JavascriptExecutor) driver;  
-	  js.executeScript(Script,Arguments);
+	  driver.findElement(By.xpath("//a[contains(@href,'Nursing_Handover_print.php')]")).click();
+	  /*JavascriptExecutor js = (JavascriptExecutor) driver;  
+	  js.executeScript(Script,Arguments);*/
 	  
 	  //driver.findElement(By.className("Printer-friendly version")).click();
 	  //driver.findElement(By.linkText("Printer-friendly version")).click();

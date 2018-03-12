@@ -9,6 +9,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,15 +26,26 @@ public class LogIn_Action {
 	public static WebDriver driver;
 	
 	public static WebDriver Execute(WebDriver driver, String gUsername, String gPassword) {
+		
 		System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
-		  driver = new FirefoxDriver();
+		FirefoxOptions options = new FirefoxOptions();
+		options.setAcceptInsecureCerts(true);
+		//options.setPreference("security.insecure_field_warning.contextual.enabled", false);
+		options.addPreference(gUsername, false);
+		options.addPreference(gPassword, false);
+		driver = new FirefoxDriver(options);
+		
+		/*driver = new HtmlUnitDriver();*/
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get(utility.Constant.URL);
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			  wait.until(ExpectedConditions.elementToBeClickable(LogInPage.username(driver))).clear();
 			LogInPage.username(driver).sendKeys(gUsername);
+			//LogInPage.remember_password(driver).click();
 			LogInPage.password(driver).clear();
 			LogInPage.password(driver).sendKeys(gPassword);
+			//LogInPage.remember_password(driver).click();
 			LogInPage.remember_password(driver).click();
 			wait.until(ExpectedConditions.elementToBeClickable(LogInPage.Submit(driver))).click();
 			//LeftFrameSwitch_Action.Execute(driver);

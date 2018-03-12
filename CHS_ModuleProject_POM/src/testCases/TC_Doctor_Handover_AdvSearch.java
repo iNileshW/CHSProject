@@ -119,9 +119,11 @@ public class TC_Doctor_Handover_AdvSearch {
 	  WindowResize_Action.Execute(driver);
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);*/
+	  /*driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);
+	  WindowResize_Action.Execute(driver);*/
 	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
-	  WindowResize_Action.Execute(driver);
   }
 
   @AfterMethod

@@ -3,7 +3,10 @@ package testCases;
 import org.testng.annotations.Test;
 
 import appModules.LeftFrameSwitch_Action;
+import appModules.LogInEntry_Nofflogin_Action;
+import appModules.LogInEntry_Nologin_Action;
 import appModules.LogIn_Action;
+import appModules.LogIn_Secure_Action;
 import appModules.MainFrameSwitch_Action;
 import utility.Constant;
 import appModules.Menu_Action;
@@ -25,7 +28,7 @@ public class TC_Doctor_Handover_ChangePwdLogin {
 	
   @Test
   public void f() {
-	  LeftFrameSwitch_Action.Execute(driver);
+	  /*LeftFrameSwitch_Action.Execute(driver);*/
 	  Menu_Action.Execute(driver,utility.Constant.Module5);
 	  MainFrameSwitch_Action.Execute(driver);
 	 
@@ -47,11 +50,15 @@ public class TC_Doctor_Handover_ChangePwdLogin {
 	  
 	  //Logout & try Log in with old password
 	  pageObjects.DoctorHandoverSignOutSheetPage.LogOut(driver).click();
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.cPassword);
-	  assertEquals("Invalid Login",pageObjects.LogInPage.validationmsg(driver).getText());
+	  driver.close();
+	  /*LogIn_Action.Execute(driver,Constant.Username,Constant.cPassword);
+	  assertEquals("Invalid Login",pageObjects.LogInPage.validationmsg(driver).getText());*/
+	  LogInEntry_Nofflogin_Action.Execute(Constant.Username,Constant.cPassword);
+	  
 	  //Logout & Login
 	  //pageObjects.JobsListPage.LogOut(driver).click();
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  /*LogIn_Action.Execute(driver,Constant.Username,Constant.Password);*/
+	  driver = LogIn_Secure_Action.Execute(Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module5);
 	  MainFrameSwitch_Action.Execute(driver);
@@ -76,10 +83,12 @@ public class TC_Doctor_Handover_ChangePwdLogin {
 	  
 	  //Logout & Login again
 	  pageObjects.DoctorHandoverSignOutSheetPage.LogOut(driver).click();
+	  //driver.close();
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module5);
 	  MainFrameSwitch_Action.Execute(driver);
+	  //driver.close();
   }
   
   @BeforeMethod
@@ -91,15 +100,17 @@ public class TC_Doctor_Handover_ChangePwdLogin {
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  WebDriverWait wait = new WebDriverWait(driver,10);
 	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));*/
+	  /*driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);
+	  WindowResize_Action.Execute(driver);*/
 	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
-	  WindowResize_Action.Execute(driver);
 	  
   }
 
   @AfterMethod
   public void afterMethod() {
-	  driver.close();
+	  driver.quit();
   }
 
 }

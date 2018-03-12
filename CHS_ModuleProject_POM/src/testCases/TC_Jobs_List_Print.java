@@ -52,9 +52,11 @@ public class TC_Jobs_List_Print {
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  WebDriverWait wait = new WebDriverWait(driver,10);
 	  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("leftFrame"));*/
+	  /*driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);
+	  WindowResize_Action.Execute(driver);*/
 	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
-	  WindowResize_Action.Execute(driver);
   }
 
   @AfterMethod

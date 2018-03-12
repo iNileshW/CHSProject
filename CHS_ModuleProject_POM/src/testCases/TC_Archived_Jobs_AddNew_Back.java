@@ -29,6 +29,7 @@ public class TC_Archived_Jobs_AddNew_Back {
 	  pageObjects.ArchivedJobsPage.AddNew(driver).click();
 	  assertEquals("Archived Jobs, Add new record",pageObjects.ArchivedJobsAddNewPage.Add_New_Page(driver).getText());
 	  pageObjects.JobsListAddNewPage.Back_To_List(driver).click();
+	  
   }
   
   @BeforeMethod

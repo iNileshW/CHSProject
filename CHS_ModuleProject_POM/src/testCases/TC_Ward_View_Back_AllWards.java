@@ -36,7 +36,6 @@ public class TC_Ward_View_Back_AllWards {
 	  for(int i=2;i<=rcount;i=i+(rcount/3)) {
 	  driver.findElement(By.xpath("html/body/form[2]/table/tbody/tr["+i+"]/td[2]/a")).click();
 	  pageObjects.WardsEditPage.BackToList(driver).click();
-	  
 	  }
 	  	  
 	  }

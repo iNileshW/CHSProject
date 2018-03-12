@@ -12,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,19 +28,25 @@ public class LogIn_Secure_Action {
 	public static WebDriver driver;
 	
 	public static WebDriver Execute(String gUsername, String gPassword) {
-		System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+		/*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 		ProfilesIni prof = new ProfilesIni();	
 				FirefoxProfile ffProfile= prof.getProfile ("prof");
 				FirefoxOptions firefoxOptions = new FirefoxOptions();
 		        
-		        /*ffProfile.setAcceptUntrustedCertificates(true); 
-				ffProfile.setAssumeUntrustedCertificateIssuer(false);*/
+		        ffProfile.setAcceptUntrustedCertificates(true); 
+				ffProfile.setAssumeUntrustedCertificateIssuer(false);
 				//firefoxOptions.setProfile(ffProfile);
 				
 				
 				WebDriver driver = new FirefoxDriver (firefoxOptions);
-				
-		  //driver = new FirefoxDriver();
+		FirefoxOptions options = new FirefoxOptions();
+		options.setAcceptInsecureCerts(true);
+		//options.setPreference("security.insecure_field_warning.contextual.enabled", false);
+		options.addPreference(gUsername, false);
+		options.addPreference(gPassword,false);
+		  driver = new FirefoxDriver(options);*/
+		
+		driver = new HtmlUnitDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get(utility.Constant.URL);
 			WebDriverWait wait = new WebDriverWait(driver, 10);

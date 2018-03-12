@@ -37,20 +37,21 @@ public class TC_Ward_RoundSheet_ChangePwdLogin {
 	  pageObjects.ChangePwd.opass(driver).clear();
 	  pageObjects.ChangePwd.opass(driver).sendKeys(Constant.Password);
 	  pageObjects.ChangePwd.cpass(driver).clear();
-	  pageObjects.ChangePwd.cpass(driver).sendKeys(Constant.cPassword);
+	  pageObjects.ChangePwd.cpass(driver).sendKeys(Constant.Password);
 	  pageObjects.ChangePwd.newpass(driver).clear();
-	  pageObjects.ChangePwd.newpass(driver).sendKeys(Constant.cPassword);
+	  pageObjects.ChangePwd.newpass(driver).sendKeys(Constant.Password);
 	  pageObjects.ChangePwd.Submit(driver).click();
 	  assertEquals("Password was changed\nBack",pageObjects.ChangePwd.msgChangePwd(driver).getText());
 	  pageObjects.ChangePwd.Back(driver).click();
 	  
 	  //Logout & try Log in with old password
 	  pageObjects.JobsListPage.LogOut(driver).click();
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  driver.close();
+	  LogIn_Action.Execute(driver,Constant.Username,Constant.cPassword);
 	  assertEquals("Invalid Login",pageObjects.LogInPage.validationmsg(driver).getText());
 	  //Logout & Login
 	  //pageObjects.JobsListPage.LogOut(driver).click();
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.cPassword);
+	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module3);
 	  MainFrameSwitch_Action.Execute(driver);
@@ -59,7 +60,7 @@ public class TC_Ward_RoundSheet_ChangePwdLogin {
 	  //Validation check for different passwords
 	  pageObjects.JobsListPage.CPassword(driver).click();
 	  pageObjects.ChangePwd.opass(driver).clear();
-	  pageObjects.ChangePwd.opass(driver).sendKeys(Constant.cPassword);
+	  pageObjects.ChangePwd.opass(driver).sendKeys(Constant.Password);
 	  pageObjects.ChangePwd.cpass(driver).clear();
 	  pageObjects.ChangePwd.cpass(driver).sendKeys(Constant.cPassword);
 	  pageObjects.ChangePwd.newpass(driver).clear();

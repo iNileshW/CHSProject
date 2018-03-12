@@ -22,11 +22,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import pageObjects.HomePage;
 public class TC_Archived_Patients_SortFunctionality {
-	public WebDriver driver;
+	WebDriver driver;
 	
   @Test
   public void f() {
-	  
+	  //LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module8);
 	  MainFrameSwitch_Action.Execute(driver);
 	  
@@ -51,10 +51,11 @@ public class TC_Archived_Patients_SortFunctionality {
   @BeforeMethod
   public void beforeMethod() throws Exception {
 	  
-	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+	 /* System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
-	  WindowResize_Action.Execute(driver);
-	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  WindowResize_Action.Execute(driver);*/
+	  //LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  
   }
