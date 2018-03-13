@@ -70,23 +70,53 @@ import org.testng.annotations.BeforeMethod;
 import static org.testng.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.server.handler.SendKeys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import pageObjects.HomePage;
+import pageObjects.LogInPage;
 public class TC_Archived_Jobs_ExportResults {
 	public WebDriver driver;
 	
   @Test
   public void f() {
-	  LeftFrameSwitch_Action.Execute(driver);
+	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+		FirefoxProfile profile = new FirefoxProfile();
+		//profile.setPreference("browser.helperApps.neverAsk.saveToDisk",1);
+		profile.setPreference("browser.helperApps.neverAsk.saveToDisk","xlsx,docx,csv,xml");
+		FirefoxOptions options = new FirefoxOptions();
+		options.setAcceptInsecureCerts(true);
+		options.setProfile(profile);
+		//options.setPreference("security.insecure_field_warning.contextual.enabled", false);
+		options.addPreference(Constant.Username, false);
+		options.addPreference(Constant.Password, false);
+		driver = new FirefoxDriver(options);
+		
+		/*driver = new HtmlUnitDriver();*/
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.get(utility.Constant.URL);
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			  wait.until(ExpectedConditions.elementToBeClickable(LogInPage.username(driver))).clear();
+			LogInPage.username(driver).sendKeys(Constant.Username);
+			//LogInPage.remember_password(driver).click();
+			LogInPage.password(driver).clear();
+			LogInPage.password(driver).sendKeys(Constant.Password);
+			//LogInPage.remember_password(driver).click();
+			LogInPage.remember_password(driver).click();
+			wait.until(ExpectedConditions.elementToBeClickable(LogInPage.Submit(driver))).click();
+			//LeftFrameSwitch_Action.Execute(driver);
+			LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module8);
 	  MainFrameSwitch_Action.Execute(driver);
-	  WebDriverWait wait = new WebDriverWait(driver, 10);
+	  //WebDriverWait wait = new WebDriverWait(driver, 10);
 	  String oldTab = driver.getWindowHandle();
 	  wait.until(ExpectedConditions.elementToBeClickable(pageObjects.ArchivedJobsPage.export_result(driver))).click();
 		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
@@ -98,7 +128,7 @@ public class TC_Archived_Jobs_ExportResults {
 	    pageObjects.ExportResultsPage.AllrecordsRadio(driver).click();
 	    //pageObjects.ExportResultsPage.CSVRadio(driver).click();
 	    pageObjects.ExportResultsPage.ExportBtn(driver).click();
-	    driver.switchTo().alert().accept();
+	    
 	    pageObjects.ExportResultsPage.AllrecordsRadio(driver).click();
 	    
 	    pageObjects.ExportResultsPage.ExcelRadio(driver).click();
@@ -110,7 +140,7 @@ public class TC_Archived_Jobs_ExportResults {
 		System.out.println(options.getProfile());
 		Login_FFoptions.Execute(driver,options);*/
 	    pageObjects.ExportResultsPage.ExportBtn(driver).click();
-	    
+	    //driver.switchTo().alert().accept();
 	    pageObjects.ExportResultsPage.AllrecordsRadio(driver).click();
 	    pageObjects.ExportResultsPage.XMLRadio(driver).click();
 	    pageObjects.ExportResultsPage.ExportBtn(driver).click();
@@ -141,8 +171,8 @@ public class TC_Archived_Jobs_ExportResults {
 	  /*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);*/
-	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
-	  LeftFrameSwitch_Action.Execute(driver);
+	  /*driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
+	  LeftFrameSwitch_Action.Execute(driver);*/
 	  
   }
 

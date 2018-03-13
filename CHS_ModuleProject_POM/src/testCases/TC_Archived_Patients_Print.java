@@ -78,7 +78,7 @@ public class TC_Archived_Patients_Print {
 	
   @Test
   public void f() {
-	  LeftFrameSwitch_Action.Execute(driver);
+	  /*LeftFrameSwitch_Action.Execute(driver);*/
 	  Menu_Action.Execute(driver,utility.Constant.Module9);
 	  MainFrameSwitch_Action.Execute(driver);
 	  

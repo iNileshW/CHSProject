@@ -45,5 +45,6 @@
 	<classpathentry kind="lib" path="C:/drivers/Apache POI/poi-ooxml-schemas-3.17.jar"/>
 	<classpathentry kind="lib" path="C:/drivers/Apache POI/poi-scratchpad-3.17.jar"/>
 	<classpathentry kind="lib" path="C:/drivers/Apache POI/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/drivers/Sikuli/sikulixsetup-1.1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

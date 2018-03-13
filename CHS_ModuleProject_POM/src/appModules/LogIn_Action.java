@@ -10,6 +10,7 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,8 +29,12 @@ public class LogIn_Action {
 	public static WebDriver Execute(WebDriver driver, String gUsername, String gPassword) {
 		
 		System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+		FirefoxProfile profile = new FirefoxProfile();
+		//profile.setPreference("browser.helperApps.neverAsk.saveToDisk",1);
+		profile.setPreference("browser.helperApps.neverAsk.saveToDisk","OK");
 		FirefoxOptions options = new FirefoxOptions();
 		options.setAcceptInsecureCerts(true);
+		options.setProfile(profile);
 		//options.setPreference("security.insecure_field_warning.contextual.enabled", false);
 		options.addPreference(gUsername, false);
 		options.addPreference(gPassword, false);
