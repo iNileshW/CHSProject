@@ -7,6 +7,7 @@ import appModules.LogInEntry_Nologin_Action;
 import appModules.LogInEntry_Yeslogin_Action;
 import appModules.LogIn_Action;
 import appModules.LogIn_Secure_Action;
+import appModules.LogIn_User_Action;
 import appModules.MainFrameSwitch_Action;
 import utility.Constant;
 import appModules.Menu_Action;
@@ -50,15 +51,15 @@ public class TC_Archived_Patients_ChangePwdLogin {
 	  pageObjects.ChangePwd.Back(driver).click();
 	  
 	  //Logout & try Log in with old password
-	  pageObjects.NurseHandoverPage.LogOut(driver).click();
+	  pageObjects.ArchivedJobsPage.LogOut(driver).click();
 	  driver.close();
-	  LogInEntry_Nologin_Action.Execute(Constant.Username,Constant.cPassword);
-	  
+	  /*LogInEntry_Nologin_Action.Execute(Constant.Username,Constant.cPassword);*/
+	  //LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 		
 	  
 	  //Logout & Login
 	  //pageObjects.JobsListPage.LogOut(driver).click();
-	  driver = LogIn_Secure_Action.Execute(Constant.Username,Constant.Password);
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module9);
 	  MainFrameSwitch_Action.Execute(driver);
@@ -96,7 +97,8 @@ public class TC_Archived_Patients_ChangePwdLogin {
 	 /* System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 	  driver = new FirefoxDriver();
 	  WindowResize_Action.Execute(driver);*/
-	  driver = LogIn_Secure_Action.Execute(Constant.Username,Constant.Password);
+	  //driver = LogIn_Secure_Action.Execute(Constant.Username,Constant.Password);
+	  driver = LogIn_Action.Execute(driver, Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  WindowResize_Action.Execute(driver);
   }

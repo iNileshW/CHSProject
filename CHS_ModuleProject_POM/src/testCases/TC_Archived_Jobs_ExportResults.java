@@ -90,15 +90,21 @@ public class TC_Archived_Jobs_ExportResults {
 	  System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 		FirefoxProfile profile = new FirefoxProfile();
 		//profile.setPreference("browser.helperApps.neverAsk.saveToDisk",1);
-		profile.setPreference("browser.helperApps.neverAsk.saveToDisk","xlsx,docx,csv,xml");
+		profile.setPreference("browser.download.manager.showwhenstarting", false);
+		profile.setPreference("browser.download.dir", "C:\\Users\\nx35wg\\Downloads");
+		profile.setPreference("browser.helper.neverask.saveToDisk", "application/xls");
+		/*profile.setPreference("browser.helperApps.neverAsk.saveToDisk","xls");
+		profile.setPreference("browser.helperApps.neverAsk.saveToDisk","doc");
+		profile.setPreference("browser.helperApps.neverAsk.saveToDisk","csv");
+		profile.setPreference("browser.helperApps.neverAsk.saveToDisk","xml");*/
 		FirefoxOptions options = new FirefoxOptions();
 		options.setAcceptInsecureCerts(true);
-		options.setProfile(profile);
+		
 		//options.setPreference("security.insecure_field_warning.contextual.enabled", false);
 		options.addPreference(Constant.Username, false);
 		options.addPreference(Constant.Password, false);
-		driver = new FirefoxDriver(options);
-		
+		WebDriver driver = new FirefoxDriver(options);
+		options.setProfile(profile);
 		/*driver = new HtmlUnitDriver();*/
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
