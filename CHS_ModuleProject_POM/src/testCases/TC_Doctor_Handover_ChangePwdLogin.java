@@ -58,7 +58,7 @@ public class TC_Doctor_Handover_ChangePwdLogin {
 	  //Logout & Login
 	  //pageObjects.JobsListPage.LogOut(driver).click();
 	  /*LogIn_Action.Execute(driver,Constant.Username,Constant.Password);*/
-	  driver = LogIn_Secure_Action.Execute(Constant.Username,Constant.Password);
+	  driver = LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module5);
 	  MainFrameSwitch_Action.Execute(driver);
@@ -82,13 +82,13 @@ public class TC_Doctor_Handover_ChangePwdLogin {
 	  pageObjects.ChangePwd.Back(driver).click();
 	  
 	  //Logout & Login again
-	  pageObjects.DoctorHandoverSignOutSheetPage.LogOut(driver).click();
-	  //driver.close();
+	  /*pageObjects.DoctorHandoverSignOutSheetPage.LogOut(driver).click();
+	  driver.close();
 	  LogIn_Action.Execute(driver,Constant.Username,Constant.Password);
 	  LeftFrameSwitch_Action.Execute(driver);
 	  Menu_Action.Execute(driver,utility.Constant.Module5);
-	  MainFrameSwitch_Action.Execute(driver);
-	  //driver.close();
+	  MainFrameSwitch_Action.Execute(driver);*/
+	  driver.close();
   }
   
   @BeforeMethod
@@ -110,7 +110,7 @@ public class TC_Doctor_Handover_ChangePwdLogin {
 
   @AfterMethod
   public void afterMethod() {
-	  driver.quit();
+	  //driver.quit();
   }
 
 }
