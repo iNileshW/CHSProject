@@ -28,7 +28,7 @@ public class LogIn_Secure_Action {
 	public static WebDriver driver;
 	
 	public static WebDriver Execute(String gUsername, String gPassword) {
-		/*System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver/geckodriver.exe");
 		ProfilesIni prof = new ProfilesIni();	
 				FirefoxProfile ffProfile= prof.getProfile ("prof");
 				FirefoxOptions firefoxOptions = new FirefoxOptions();
@@ -44,9 +44,9 @@ public class LogIn_Secure_Action {
 		//options.setPreference("security.insecure_field_warning.contextual.enabled", false);
 		options.addPreference(gUsername, false);
 		options.addPreference(gPassword,false);
-		  driver = new FirefoxDriver(options);*/
+		  driver = new FirefoxDriver(options);
 		
-		driver = new HtmlUnitDriver();
+		//driver = new HtmlUnitDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get(utility.Constant.URL);
 			WebDriverWait wait = new WebDriverWait(driver, 10);
